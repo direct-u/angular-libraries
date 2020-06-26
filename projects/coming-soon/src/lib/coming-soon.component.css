@@ -1,0 +1,39 @@
+.bgimg {
+  height: 100%;
+  background: url('../../assets/image/forestbridge.jpg') center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  font-size: 11px;
+}
+
+.main {
+  /*position: absolute;*/
+  top: 50%;
+  left: 50%;
+  /*transform: translate(-50%, -50%);*/
+  text-align: center;
+}
+
+.countdown {
+  font-size: 30px;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
