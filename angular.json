@@ -42,6 +42,123 @@
           }
         }
       }
+    },
+    "lib-example": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/lib-example",
+      "sourceRoot": "projects/lib-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/lib-example",
+            "index": "projects/lib-example/src/index.html",
+            "main": "projects/lib-example/src/main.ts",
+            "polyfills": "projects/lib-example/src/polyfills.ts",
+            "tsConfig": "projects/lib-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/lib-example/src/favicon.ico",
+              "projects/lib-example/src/assets"
+            ],
+            "styles": [
+              "projects/lib-example/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/lib-example/src/environments/environment.ts",
+                  "with": "projects/lib-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lib-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lib-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lib-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lib-example/src/test.ts",
+            "polyfills": "projects/lib-example/src/polyfills.ts",
+            "tsConfig": "projects/lib-example/tsconfig.spec.json",
+            "karmaConfig": "projects/lib-example/karma.conf.js",
+            "assets": [
+              "projects/lib-example/src/favicon.ico",
+              "projects/lib-example/src/assets"
+            ],
+            "styles": [
+              "projects/lib-example/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lib-example/tsconfig.app.json",
+              "projects/lib-example/tsconfig.spec.json",
+              "projects/lib-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/lib-example/e2e/protractor.conf.js",
+            "devServerTarget": "lib-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lib-example:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "coming-soon"
