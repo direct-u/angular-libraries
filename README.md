@@ -1,3 +1,5 @@
+![](https://img.shields.io/github/license/direct-u/angular-libraries?color=orange)
+
 # Angular Libraries
 
 ## Get Started
